@@ -1,0 +1,85 @@
+Task: Build a Simple Bookstore API in Node.js
+
+Objective:
+Create a RESTful API using Node.js and Express in a main app.js file to manage books in a bookstore.
+
+Instructions:
+Use Node.js + Express.
+
+Store book data in-dataBase (using model).
+
+Use the uuid package to generate unique book IDs.
+
+All code must be written in below mention files.
+
+Install Dependencies:
+
+npm install express body-parser uuid
+(use only body parser or express.json()=> both not using)
+
+Implement the following 5 REST API routes:
+
+Required APIs:
+Method Route Description
+POST /books Add a new book
+GET /books Get all books
+GET /books/:uuid Get a book by ID(using params)
+PUT /books/:uuid Update book by ID(using params)
+DELETE /books/?uuid=785787 Delete book by ID(using query)
+GET     /above3star/?star=4   Get books based on rating (above 3 using query)
+GET     /activeBooks        Get Active books only
+PUT     /statusChange     Update Books Status (true or false)
+
+Book Object Format:
+Each book must have the following fields:
+
+{
+  uuid: "generated-uuid",     // Unique ID
+  title: "Book Title",      // String
+  author: "Author Name",    // String
+  price: 299                // Number
+  rating : 1 to 5           //Enum
+  active:false              //Booleans default(true)
+  yaerOfPublished : 2019    //Number
+  imgeUrl: "https://picsum.photos/"   //mark as default config in model
+}
+
+Requirements:
+
+Use express or body-parser middleware to read request body(only one use).
+
+Validate required fields: title, author, price on POST.
+
+Return appropriate status codes: 201, 200, 404, 400, etc.
+
+With proper error handling folder
+
+Handle errors if book is not found.
+
+
+Sample JSON Body for POST / PUT:
+ 
+{
+  "title": "The Power of Now",
+  "author": "Eckhart Tolle",
+  "price": 350,
+etc...,
+}
+
+Submission:
+File name: app.js and model and routes connectionDb
+//model view controller
+
+-->model
+-------->booksSchema.js
+-->common
+-------->connection.js
+-->controller
+--------->booksController.js
+-->routes
+-------->booksRoutes.js
+>app.js
+
+Must run with: node app.js  
+
+Test via Postman or curl
